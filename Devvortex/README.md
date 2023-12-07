@@ -198,5 +198,10 @@ linpeas.txt - sudo = 1.8.31
 ```bash
 	Brute force hash ?
 
-	
+	hashcat -m 3200 "$2y$10$IT4k5kmSGvHSO9d6M/1w0eYiB5Ne9XzArQRFJTGThNiy/yBtkIj12" -a 0 rockyou.txt
+
+	$2y$10$IT4k5kmSGvHSO9d6M/1w0eYiB5Ne9XzArQRFJTGThNiy/yBtkIj12:tequieromucho
+
+	ssh logan@devvortex.htb
+	tequieromucho
 ```
